@@ -1,0 +1,80 @@
+
+fields notes
+print("keys on node_type are")
+print(editor.note.note_type().keys())
+print('fields are')
+print(editor.note.note_type()['flds'])
+editor_loaded_note note_type_name Ja Vocabulary
+
+English field is: 
+jjflkfd
+
+keys on node_type are
+dict_keys(['id', 'name', 'type', 'mod', 'usn', 'sortf', 'did', 'tmpls', 'flds', 'css', 'latexPre', 'latexPost', 'latexsvg', 'req', 'tags', 'vers'])
+
+fields are (trimmed boring stuff off each entry)
+[
+  {'name': 'English', 'ord': 0, },
+  {'name': 'Word', 'ord': 1, },
+  {'name': 'Reading', 'ord': 2, },
+  {'name': 'Example sentence', 'ord': 3, },
+  {'name': 'Notes', 'ord': 4, },
+  {'name': 'Story', 'ord': 5, },
+  {'name': 'Image', 'ord': 6, },
+  {'name': 'Audio', 'ord': 7, },
+  {'name': 'Alternatives', 'ord': 8, },
+  {'name': 'Hidden notes', 'ord': 9, },
+  {'name': 'Suppress En Card', 'ord': 10, },
+  {'name': 'Suppress Kanji Card', 'ord': 11, },
+  {'name': 'Suppress Reading Card', 'ord': 12, }
+]
+
+
+from anki utils.py
+def stripHTML(s: str) -> str:
+    import anki.lang
+    from anki.collection import StripHtmlMode
+
+    return anki.lang.current_i18n.strip_html(text=s, mode=StripHtmlMode.NORMAL)
+
+format example
+example field was non-empty 'かれは必ずもどってくるので、大じょうぶです。<br><br>He’ll definitely come back, so I’m okay.<br><br>必ずねる前にコンタクトを外した方がいいよ。でないとし力がさらにおちるよ。<br><br>You should always take out your contacts before going to bed. Otherwise your eyesight will get worse.<br><br>何があっても必ずさい後までワニカニをやりとげます。<br><br>I will certainly complete WaniKani no matter what.'
+
+example test function from anki addon tutorial
+def testFunction() -> None:
+    # get the number of cards in the current collection, which is stored in
+    # the main window
+    cardCount = mw.col.cardCount()
+    # show a message box
+    util.showInfo("Card count: %d" % cardCount)
+
+# create a new menu item, "test"
+action = QAction("test", mw)
+# set it to call testFunction when it's clicked
+qconnect(action.triggered, testFunction)
+# and add it to the tools menu
+mw.form.menuTools.addAction(action)
+
+# example function from another addon which was interesting
+# cross out the currently selected text
+def onStrike(editor):
+    editor.web.eval("wrap('<del>', '</del>');")
+
+verb inflections copy/pasta notes
+0      1
+行く 	行かない
+2                      3               4
+Non-past, polite 	行きます 	行きません
+5      6       7
+Past 	行った 	行かなかった
+8              9               10
+Past, polite 	行きました 	行きませんでした
+11             12      13
+Te-form 	行って 	行かなくて
+Potential 	行ける 	行けない
+Passive 	行かれる 	行かれない
+Causative 	行かせる 	行かせない
+Causative Passive 	行かせられる 	行かせられない
+Imperative 	行け 	行くな
+
+
