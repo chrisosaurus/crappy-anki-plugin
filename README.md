@@ -9,6 +9,7 @@ This plugin is paranoid and has hard coded values in addon.py for fields and
 note types, and this plugin will refuse to run for fields or notes not in these
 lists.
 
+
 ## new buttons in edit dialogue
 
  - fill all
@@ -44,3 +45,10 @@ perform cleanup and formatting for fields on current note
 
 ### run tests
 run tests for this plugin
+
+
+## new Jump to deck menu item (Ctrl+Shift+J / Cmd+Shift+J)
+A new dialog to help a user open a deck from the keyboard only
+Prompts the user for a regex and will search through all decks for first match
+First match found is then opened
+
