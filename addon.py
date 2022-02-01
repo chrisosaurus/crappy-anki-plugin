@@ -237,6 +237,8 @@ def formatTextWhitespace(text):
 
 def formatExample(text):
     text = formatTextWhitespace(text)
+    # remote trailing whitespace after fullstops.
+    text = re.sub('\.\s+<br>', '.<br>', text)
     # add an extra br between entries (after en section)
     text = re.sub('\.<br>', '.<br><br>', text)
     text = re.sub('\?<br>', '?<br><br>', text)
