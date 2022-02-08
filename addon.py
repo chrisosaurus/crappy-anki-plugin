@@ -489,6 +489,21 @@ def autoTag(editor):
         entry['meaning'],
         alternatives,
     )
+    # Populate 'English' without prompt (if empty).
+    if (entry['meaning'] and
+        'English' in note and
+        not note['English']):
+        writeField(note, 'English', entry['meaning'])
+        formatFieldList(note, 'English')
+    elif entry['meaning']:
+        # otherwise, if English is full, save primary meaning as
+        # alternative. TODO consider this wrt. filtering, English
+        # might already contain this meaning.
+        alternatives = entry['meaning'] + ', ' + alternatives
+
+    # TODO filter alternatives for items already present in meaning
+    # ('English') field.
+
     # TODO FIXME tidy this up
     if (alternatives and
        'Alternatives' in note and
