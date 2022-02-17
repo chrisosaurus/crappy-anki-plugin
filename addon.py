@@ -29,6 +29,7 @@ CONFIG = {
     ],
     'verb_note_types' : [
       'Ja Verbs',
+      #'Ja Verb conjugation',
     ],
 
     # fields to populate & format examples in
