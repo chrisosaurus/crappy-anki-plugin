@@ -45,6 +45,8 @@ CONFIG = {
     'meaning_list_fields' : [
       'English',
       'Alternatives',
+      'Type',
+      'Transitivity',
     ],
 
     # fields to use for Jisho lookup, tried in order first non empty is used.
