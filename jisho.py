@@ -76,6 +76,14 @@ def decodeJishoEntry(data):
     tags = first['tags']
     wanikani = filterWanikaniTags(tags)
 
+    japanese = first['japanese']
+    word = ''
+    reading = ''
+    for ja in japanese:
+        word = ja['word']
+        reading = ja['reading']
+        break
+
     senses = first['senses']
     meanings = []
     parts_of_speech = []
@@ -126,6 +134,8 @@ def decodeJishoEntry(data):
       'alternatives': meanings[1:],
       'parts_of_speech': parts_of_speech,
       'verb_info': verb_info,
+      'word': word,
+      'reading': reading,
     }
 
     return result

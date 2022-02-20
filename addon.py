@@ -515,6 +515,18 @@ def autoTag(editor):
             writeField(note, 'Alternatives', alternatives)
             formatFieldList(note, 'Alternatives')
 
+    # TODO FIXME this if and and logic should be extractable using a table.
+    # populate 'word' and 'reading' fields, if not filled.
+    if (entry['word'] and
+        'Word' in note and
+        not note['Word']):
+        writeField(note, 'Word', entry['word'])
+
+    if (entry['reading'] and
+        'Reading' in note and
+        not note['Reading']):
+        writeField(note, 'Reading', entry['reading'])
+
     commitChanges(editor)
 
 def getCurrentTags(note):
