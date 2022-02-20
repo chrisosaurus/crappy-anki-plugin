@@ -80,8 +80,10 @@ def decodeJishoEntry(data):
     word = ''
     reading = ''
     for ja in japanese:
-        word = ja['word']
-        reading = ja['reading']
+        if 'word' in ja:
+            word = ja['word']
+        if 'reading' in ja:
+            reading = ja['reading']
         break
 
     senses = first['senses']
