@@ -39,6 +39,8 @@ for a partially filled in verb note, this will attempt to generate verb pairs
 
 ### auto tag
 search Jisho.org for appropriate JLPT and Wanikani tags to add to current note
+really poorly named, as now also populates other fields from Jisho, name will
+have to change soon.
 
 ### cleanup
 perform cleanup and formatting for fields on current note
