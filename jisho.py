@@ -57,6 +57,7 @@ def verbPartOfSpeechFilter(s):
         'ichidan' : 'ichidan',
         'transitive' : 'transitive',
         'intransitive' : 'intransitive',
+        'suru' : 'suru',
     }
     # normalize to lowercase and remove everything after first space
     s = s.lower()
@@ -117,6 +118,11 @@ def decodeJishoEntry(data):
             if s:
                 s += ' and '
             s += 'Ichidan'
+        if 'suru' in verb_categories:
+            if s:
+                s += ' and '
+            s += 'Suru'
+
         verb_info['type'] = s
 
         s = ''
