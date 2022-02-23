@@ -228,6 +228,8 @@ def formatTextWhitespace(text):
     text = re.sub('</div><div>', '<br>', text)
     # remove all non <br> tags
     text = re.sub('<([^b>][^r>][^>]*|.)>', '', text)
+    # remove all nbsp
+    text = re.sub('&nbsp;', '', text)
     # remove redundant br tags
     text = re.sub('(<br>)+', '<br>', text)
     # remove all leading and trailing tags
@@ -240,6 +242,9 @@ def formatTextWhitespace(text):
 
 def formatExample(text):
     text = formatTextWhitespace(text)
+    # remove any extra whitepsace after ja fullstop.
+    # add a single trailing <br> if not present.
+    text = re.sub('。\s*(<br>)*', '。<br>', text)
     # remote trailing whitespace after fullstops.
     text = re.sub('\.\s+<br>', '.<br>', text)
     # add an extra br between entries (after en section)
@@ -280,7 +285,7 @@ def formatFieldList(note, field):
     if not note[field]:
         return
 
-    val = note[field].strip()
+    val = formatTextWhitespace(note[field])
 
     suffix = False
     if re.match('^~', val):
@@ -315,6 +320,11 @@ def formatFieldList(note, field):
     matches = re.findall('\([^)]+\)', val)
     for m in matches:
         val = val.replace(m, m.lower())
+
+    # fixup redundant commas
+    val = re.sub('(?:,(?:\s|<br>)*)+', ', ', val)
+    # remove trailing commas
+    val = re.sub('(?:,(?:\s|<br>)*)+$', '', val)
 
     note[field] = val
 
